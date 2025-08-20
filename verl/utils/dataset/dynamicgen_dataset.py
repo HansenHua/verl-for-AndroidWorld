@@ -198,11 +198,11 @@ def sample(num, dir):
         def process_fn(example, idx):
             problem = example.pop("problem")
             prompt = problem + " " + ACTION_SELECTION_PROMPT_TEMPLATE
-            reward = example.pop("reward")
+            reward = example.pop("answer")
             images = example.pop("raw_screenshot")
 
             data = {
-                "data_source": os.path.join(dir,'train_.parquet'),
+                "data_source": "Androidworld",
                 "prompt": [
                     {
                         "role": "user",
