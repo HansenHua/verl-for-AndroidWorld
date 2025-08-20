@@ -23,7 +23,7 @@ from split_monkey_patch import fit
 
 from verl import DataProto
 from verl.trainer.ppo.ray_trainer import RayPPOTrainer
-from verl.utils.reward_score import gsm8k, math
+from verl.utils.reward_score import gsm8k, math, androidworld
 
 
 def _select_rm_score_fn(data_source):
@@ -31,6 +31,8 @@ def _select_rm_score_fn(data_source):
         return gsm8k.compute_score
     elif data_source == "lighteval/MATH":
         return math.compute_score
+    elif data_source == "Androidworld":
+        return androidworld.compute_score
     else:
         raise NotImplementedError
 
